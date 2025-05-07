@@ -1,99 +1,371 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title fontcolor="blue">Mi Perfil Personal</title>
-   
+  <meta charset="es">
+  <title>Portal - Animación CSS</title>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  animation-name: body;
+}
+
+.contenedor {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  perspective: 1000px;
+}
+
+.centro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+}
+
+.punto {
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.circulo1, .circulo2, .circulo3, .circulo4, .circulo5, .circulo6 {
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0.7;
+}
+
+.circulo1 {
+  width: 50px;
+  height: 50px;
+}
+
+.circulo2 {
+  width: 100px;
+  height: 100px;
+}
+
+.circulo3 {
+  width: 150px;
+  height: 150px;
+}
+
+.circulo4 {
+  width: 200px;
+  height: 200px;
+}
+
+.circulo5 {
+  width: 250px;
+  height: 250px;
+}
+
+.circulo6 {
+  width: 300px;
+  height: 300px;
+}
+
+.estrellas {
+  position: absolute;
+  width: 2000px;
+  height: 2000px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0;
+}
+
+.destello {
+  width: 0;
+  height: 0;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.texto {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  width: 300px;
+  text-align: center;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.boton {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.boton:hover ~ .centro .circulo1 {
+  animation: expandir1 3s forwards, cambiarColor1 2s infinite, reversa1 3s forwards 8s;
+}
+
+.boton:hover ~ .centro .circulo2 {
+  animation: expandir2 3.5s forwards 0.1s, cambiarColor2 3s infinite 0.1s, reversa2 3.5s forwards 8.1s;
+}
+
+.boton:hover ~ .centro .circulo3 {
+  animation: expandir3 4s forwards 0.2s, cambiarColor3 4s infinite 0.2s, reversa3 4s forwards 8.2s;
+}
+
+.boton:hover ~ .centro .circulo4 {
+  animation: expandir4 4.5s forwards 0.3s, cambiarColor4 5s infinite 0.3s, reversa4 4.5s forwards 8.3s;
+}
+
+.boton:hover ~ .centro .circulo5 {
+  animation: expandir5 5s forwards 0.4s, cambiarColor5 6s infinite 0.4s, reversa5 5s forwards 8.4s;
+}
+
+.boton:hover ~ .centro .circulo6 {
+  animation: expandir6 5.5s forwards 0.5s, cambiarColor6 7s infinite 0.5s, reversa6 5.5s forwards 8.5s;
+}
+
+.boton:hover ~ .centro .estrellas {
+  animation: mostrarEstrellas 2s forwards 1s, moverEstrellas 5s linear infinite 1s, ocultarEstrellas 2s forwards 8s;
+}
+
+.boton:hover ~ .centro .destello {
+  animation: brillar 2s forwards 4s;
+}
+
+.boton:hover ~ .centro .texto {
+  animation: mostrarTexto 1s forwards 4.5s, ocultarTexto 1s forwards 8s;
+}
+
+.boton:hover ~ .centro .punto {
+  animation: pulsar 0.5s infinite;
+}
+
+.boton:hover ~ .centro {
+  animation: tunel 4s forwards 3s, reversaTunel 4s forwards 8s;
+}
+
+.boton:hover {
+  animation: ocultarBoton 0.5s forwards;
+}
+
+@keyframes expandir1 {
+  0% { transform: translate(-50%, -50%) scale(0); }
+  80% { transform: translate(-50%, -50%) scale(6); }
+  100% { transform: translate(-50%, -50%) scale(6); }
+}
+
+@keyframes expandir2 {
+  0% { transform: translate(-50%, -50%) scale(0); }
+  80% { transform: translate(-50%, -50%) scale(7); }
+  100% { transform: translate(-50%, -50%) scale(7); }
+}
+
+@keyframes expandir3 {
+  0% { transform: translate(-50%, -50%) scale(0); }
+  80% { transform: translate(-50%, -50%) scale(8); }
+  100% { transform: translate(-50%, -50%) scale(8); }
+}
+
+@keyframes expandir4 {
+  0% { transform: translate(-50%, -50%) scale(0); }
+  80% { transform: translate(-50%, -50%) scale(9); }
+  100% { transform: translate(-50%, -50%) scale(9); }
+}
+
+@keyframes expandir5 {
+  0% { transform: translate(-50%, -50%) scale(0); }
+  80% { transform: translate(-50%, -50%) scale(10); }
+  100% { transform: translate(-50%, -50%) scale(10); }
+}
+
+@keyframes expandir6 {
+  0% { transform: translate(-50%, -50%) scale(0); }
+  80% { transform: translate(-50%, -50%) scale(11); }
+  100% { transform: translate(-50%, -50%) scale(11); }
+}
+
+@keyframes reversa1 {
+  0% { transform: translate(-50%, -50%) scale(6); }
+  100% { transform: translate(-50%, -50%) scale(0); }
+}
+
+@keyframes reversa2 {
+  0% { transform: translate(-50%, -50%) scale(7); }
+  100% { transform: translate(-50%, -50%) scale(0); }
+}
+
+@keyframes reversa3 {
+  0% { transform: translate(-50%, -50%) scale(8); }
+  100% { transform: translate(-50%, -50%) scale(0); }
+}
+
+@keyframes reversa4 {
+  0% { transform: translate(-50%, -50%) scale(9); }
+  100% { transform: translate(-50%, -50%) scale(0); }
+}
+
+@keyframes reversa5 {
+  0% { transform: translate(-50%, -50%) scale(10); }
+  100% { transform: translate(-50%, -50%) scale(0); }
+}
+
+@keyframes reversa6 {
+  0% { transform: translate(-50%, -50%) scale(11); }
+  100% { transform: translate(-50%, -50%) scale(0); }
+}
+
+@keyframes cambiarColor1 {
+  0% { border-color: #ff1493; }
+  33% { border-color: #00bfff; }
+  66% { border-color: #7cfc00; }
+  100% { border-color: #ff1493; }
+}
+
+@keyframes cambiarColor2 {
+  0% { border-color: #ff4500; }
+  33% { border-color: #1e90ff; }
+  66% { border-color: #32cd32; }
+  100% { border-color: #ff4500; }
+}
+
+@keyframes cambiarColor3 {
+  0% { border-color: #ff8c00; }
+  33% { border-color: #4169e1; }
+  66% { border-color: #3cb371; }
+  100% { border-color: #ff8c00; }
+}
+
+@keyframes cambiarColor4 {
+  0% { border-color: #ffd700; }
+  33% { border-color: #6a5acd; }
+  66% { border-color: #2e8b57; }
+  100% { border-color: #ffd700; }
+}
+
+@keyframes cambiarColor5 {
+  0% { border-color: #ff69b4; }
+  33% { border-color: #9370db; }
+  66% { border-color: #20b2aa; }
+  100% { border-color: #ff69b4; }
+}
+
+@keyframes cambiarColor6 {
+  0% { border-color: #ff6347; }
+  33% { border-color: #8a2be2; }
+  66% { border-color: #00ced1; }
+  100% { border-color: #ff6347; }
+}
+
+@keyframes brillar {
+  0% { width: 0; height: 0; opacity: 0; }
+  50% { width: 5000px; height: 5000px; opacity: 1; }
+  100% { width: 0; height: 0; opacity: 0; }
+}
+
+@keyframes mostrarTexto {
+  0% { opacity: 0; transform: (-50%) scale(0); }
+  100% { opacity: 1; transform:translateY(-50%) translateX(-50%) scale(1); }
+}
+
+@keyframes ocultarTexto {
+  0% { opacity: 1; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) scale(0); }
+}
+
+@keyframes mostrarEstrellas {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes ocultarEstrellas {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes moverEstrellas {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes pulsar {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); background: white; }
+  50% { transform: translate(-50%, -50%) scale(3); background: cyan; }
+}
+
+@keyframes tunel {
+  0% { transform: translate(-50%, -50%) scale(1) rotateY(0deg); }
+  100% { transform: translate(-50%, -50%) scale(1) rotateY(1440deg); }
+}
+
+@keyframes reversaTunel {
+  0% { transform: translate(-50%, -50%) scale(1) rotateY(1440deg); }
+  100% { transform: translate(-50%, -50%) scale(1) rotateY(0deg); }
+}
+
+@keyframes ocultarBoton {
+  0% { opacity: 1; }
+  100% { opacity: 0.3; }
+
+}
+@keyframes body {
+    0% {
+        background-color: black;
+        z-index: 100;
+    }
+    100% {
+        background-color: white;
+    }
+}
+  </style>
 </head>
-
-<body bgcolor="lightgray" >
-    
-    <font color="#8E44AD" face="Lucida Bright" ><h1 align="center" >Mi Perfil Personal</h1></font>
-    
-    <font face="Arial" >
-    <table align="center">
-        <tr>
-            <th><img width="45%"  src="https://i.ibb.co/K4SgchD/img.jpg" 
-        </tr>
-    </table>
-    <table align="center" border="0" width="70%" cellspacing="10" cellpadding="10">
-        <tr >
-            <th colspan="3" bgcolor=" #D5B8E1" height="100"><h2><font color="#9B59B6">Información Personal</font></h2></th>
-            
-        </tr >
-        <tr height="50"  >
-            <td bgcolor="#BDC3C7"><b><font color="#2C3E50">Nombre:</font></b></td>
-            <td colspan="2" bgcolor="fbe8ff"><font color="#34495E">Diogenes Flores</font></td>
-            
-        </tr>
-        <tr height="50" >
-            <td bgcolor="#BDC3C7"><b><font color="#2C3E50">Profesión:</font></b></td>
-            <td colspan="2" bgcolor="fbe8ff"><font color="#34495E">Estudiante</font></td>></td>
-            
-        </tr>
-        <tr height="50" >
-            <td bgcolor="#BDC3C7"><b><font color="#2C3E50">Ubicación:</font></b></td>
-            <td colspan="2" bgcolor="fbe8ff"><font color="#34495E">Comayagua, Honduras</font></td>
-             
-        </tr>
-    </table> 
-    <br>
-    <br>
-   
-    <br>
-    <br>
-     </table>
-    <table width="70%" align="center" border="0" cellspacing="10" cellpadding="10">
-        <tr>
-            <th colspan="3" bgcolor=" #D5B8E1" height="100"><h2><font color="#9B59B6">Talentos e Intereses</font></h2></th>
-        </tr>
-        
-        <tr>
-            <td bgcolor="fbe8ff" height="200" width="35%"><font color="#34495E" ><b>Talentos</b>
-            </font>
-                <ul>
-                <li>Matematicas</li>
-                <li>Futbol</li>
-                <li>Programación</li>
-                <li>Comunicación efectiva</li>
-                </ul>
-            </font>
-            </td>
-            <td bgcolor="fbe8ff" height="200" width="35%" ><font color="#34495E" ><b>Intereses</b>
-            </font>
-            <ul>
-                <li>Tecnología</li>
-                <li>Deportes</li>
-                <li>Viajes</li>
-                <li>Ciencia</li>
-            </ul>
-            </td>
-        </tr>
-    </table>
-    <br>
-    <br>
-    <hr size="10">
-    <br>
-    <br>
-    
-    <table align="center" border="0" width="70%" cellspacing="10" cellpadding="10">
-        <tr>
-            <th colspan="3" bgcolor=" #D5B8E1" height="100"><h2><font color="#9B59B6">Redes Sociales</font></h2>
-            </th>
-        <tr>
-            <td> 
-                <p align="center">
-                    <a href="https://www.instagram.com/"><img  width="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/640px-Instagram_logo_2022.svg.png" alt="Logo instagram"></a> <a
-                     href="https://linkedin.com/"><img  width="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png" alt="Logo linkedin"></a>
-                    <a href="https://x.com/?lang=es"><img  width="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/210px-X_logo_2023.svg.png" alt="Logo twitter"></a>
-                    <a href="https://github.com/"><img  width="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/270px-GitHub_Invertocat_Logo.svg.png" alt="Logo github"></a>
-                </p>
-            </td>
-        </tr>
-</table>
-   <hr>
-<p size="10" align="center">Hecho por Diogenes Flores</p>
+<body>
+  <div class="contenedor">
+    <button class="boton">Activar Portal</button>
+    <div class="centro">
+      <div class="punto"></div>
+      <div class="circulo1"></div>
+      <div class="circulo2"></div>
+      <div class="circulo3"></div>
+      <div class="circulo4"></div>
+      <div class="circulo5"></div>
+      <div class="circulo6"></div>
+      <div class="estrellas"></div>
+      <div class="destello"></div>
+      <p class="texto">BIENVENIDO A INVENTOLANDIA</p>
+    </div>
+  </div>
 </body>
-
 </html>
